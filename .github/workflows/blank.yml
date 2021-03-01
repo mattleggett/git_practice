@@ -3,14 +3,12 @@ name: TESTING
 on:
   # Trigger the workflow on pull requests to master
   # job will only run if merge was successful
-  pull_request:
+  push:
     branches: 
-      - master
-    types: [ closed ]
+      - test1
 
 jobs:
   changedFiles:
-    if: github.event.pull_request.merged == false  # CHANGE TO TRUE!
     runs-on: ubuntu-latest
 
     # outputs:
@@ -31,5 +29,5 @@ jobs:
             'json'
       - run: |
           echo "${{ steps.files.outputs.added_modified }}"
-          echo "var=$(steps.files.outputs.added_modified | grep .py$)"
+          echo "var=$(steps.files.outputs.added_modified)"
           echo $var
