@@ -33,4 +33,7 @@ jobs:
             echo "lambda=$(grep .py$ files.txt)"
           fi
           echo $lambda 
-
+          if [ $(grep .yml$ files.txt |wc -l) == 1 ]; then
+            echo "flow=$(grep .yml$ files.txt)"
+          fi
+          echo $flow
