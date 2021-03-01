@@ -29,5 +29,5 @@ jobs:
             'json'
       - run: |
           for changed_file in ${{ steps.files.outputs.added_modified }}; do
-            echo "${changed_file}"
+            echo "${changed_file} | grep .py$"
           done
