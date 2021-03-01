@@ -31,4 +31,4 @@ jobs:
             'json'
       - run: |
           echo "${{ steps.files.outputs.added_modified }}"
-          echo "${{ steps.files.outputs.added_modified }} | grep .py$"
+          ${{ steps.files.outputs.added_modified }} | grep .py$
