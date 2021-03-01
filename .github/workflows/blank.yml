@@ -26,5 +26,6 @@ jobs:
         uses: jitterbit/get-changed-files@v1
       - run: |
           for changed_file in ${{ steps.files.outputs.all }}; do
-            echo "$(${changed_file} | grep .py$)"
+            echo "$(grep .py$ ${changed_file})"
+            echo "$(grep .py$ ${changed_file}) |wc -l"
           done
