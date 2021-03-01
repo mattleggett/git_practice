@@ -24,10 +24,7 @@ jobs:
       - name: Get changed files
         id: files
         uses: jitterbit/get-changed-files@v1
-        with:
-          format:
-            'json'
       - run: |
-          for changed_file in ${{ steps.files.outputs.added_modified }}; do
+          for changed_file in ${{ steps.files.outputs.all }}; do
             echo "${changed_file} | grep .py$"
           done
