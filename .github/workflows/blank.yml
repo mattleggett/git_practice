@@ -31,4 +31,5 @@ jobs:
             'json'
       - run: |
           echo "${{ steps.files.outputs.added_modified }}"
-          steps.files.outputs.added_modified | grep .py$
+          echo "var=$(steps.files.outputs.added_modified | grep .py$)"
+          echo $var
