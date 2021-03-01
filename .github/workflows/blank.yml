@@ -30,4 +30,4 @@ jobs:
       - run: |
           echo "var=${{ steps.files.outputs.added_modified }}"
           echo "var=$(steps.files.outputs.added_modified)"
-          for i in var;do echo $i; done
+          for i in ${var[*]};do echo $i; done
