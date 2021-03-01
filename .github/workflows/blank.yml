@@ -29,4 +29,8 @@ jobs:
           for changed_file in ${{ steps.files.outputs.all }}; do
             echo ${changed_file} >> files.txt
           done
-          grep .py$ files.txt |wc -l
+          if [ $(grep .py$ files.txt |wc -l) == 1 ]; then
+            echo "lambda=$(grep .py$ files.txt)"
+          fi
+          echo $lambda 
+
