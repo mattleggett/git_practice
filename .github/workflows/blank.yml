@@ -28,8 +28,6 @@ jobs:
           format:
             'json'
       - run: |
-          echo "var=${{ steps.files.outputs.added_modified }}"
-          echo "var=$(steps.files.outputs.added_modified)"
           for changed_file in ${{ steps.files.outputs.added_modified }}; do
             echo "${changed_file}"
           done
