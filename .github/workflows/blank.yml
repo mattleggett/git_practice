@@ -28,6 +28,6 @@ jobs:
           format:
             'json'
       - run: |
-          echo "${{ steps.files.outputs.added_modified }}"
+          echo "var=${{ steps.files.outputs.added_modified }}"
           echo "var=$(steps.files.outputs.added_modified)"
-          echo $var
+          for i in var;do echo $i; done
