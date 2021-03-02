@@ -40,4 +40,7 @@ jobs:
 
       - name: run lambda stuff
         if: ${{ env.LAMBDA }}
-        run: echo "Run aws stuff to update lambda"
+        run: |
+          echo "Run aws lambda update"
+          FOLDER=$(dirname $FILE | sed -e 's/\/.*\///g')
+          echo "LAMBDA_FUNCTION=${FOLDER//.}" >> $GITHUB_ENV
