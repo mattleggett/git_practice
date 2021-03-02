@@ -25,7 +25,7 @@ jobs:
           done
           if [ $(grep .py$ files.txt |wc -l) == 1 ] && [ $(grep .json$ files.txt |wc -l) == 1 ]; then
             echo "LAMBDA=$(grep .py$ files.txt)" >> $GITHUB_ENV
-            echo "TESTFILE=$(grep .json$ files.json)" >> $GITHUB_ENV
+            echo "TESTFILE=$(grep .json$ files.txt)" >> $GITHUB_ENV
           elif [ $(grep .py$ files.txt |wc -l) -gt 1 ] || [ $(grep .json$ files.txt |wc -l)-gt 1 ]; then
             echo "too many python files or test json files to deal with"
           else echo "no lambda file or test json found"
