@@ -46,7 +46,7 @@ jobs:
         run: psql --version
 
       - name: run lambda stuff
-        if: ${{ env.LAMBDA }}
+        if: ${{ env.LAMBDA }} && ${{ env.TESTFILE }}
         run: |
           FOLDER=$(dirname $LAMBDA | sed -e 's/\/.*\///g')
           echo "LAMBDA_FUNCTION=${FOLDER//.}" >> $GITHUB_ENV
